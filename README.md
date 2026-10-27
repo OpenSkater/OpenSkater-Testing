@@ -69,8 +69,9 @@ To check a download: `sha256sum -c SHA256SUMS --ignore-missing` (Linux) or
 
 **Minimum recommended set:** THPS2X (Xbox), THPS1 (PlayStation, USA) and
 THPS2 (PlayStation, USA). These three give the most complete experience:
-both original careers, the 2X remaster with its own career and five extra
-levels, and what THPS1 needs to import. Add the Dreamcast THPS1 and THPS2
+both original careers and the 2X remaster with its own career and five extra
+levels. THPS1 plays without THPS2X; with THPS2X imported, THPS1 skaters
+use THPS2X's animations by default. Add the Dreamcast THPS1 and THPS2
 for higher-detail models and textures in those games, and THPS3/THPS4 Xbox
 if you want to try the later games.
 
@@ -82,7 +83,7 @@ textures can be chosen under *Options > Platform Look*.
 
 | Game | Version | Files | Status | What it adds | Recommended |
 |---|---|---|---|---|---|
-| THPS1 | PlayStation USA | `.cue`+`.bin`, `.chd` | playable (needs THPS2X) | the base THPS1 pack: 9 levels, 12 skaters, the career | **Yes**, the THPS1 base |
+| THPS1 | PlayStation USA | `.cue`+`.bin`, `.chd` | playable | the base THPS1 pack: 9 levels, 12 skaters, the career (plays on its own; THPS2X adds its animations and stats, and level background sounds) | **Yes**, the THPS1 base |
 | THPS1 | PlayStation Europe (*Tony Hawk's Skateboarding*) | `.cue`+`.bin`, `.chd` | playable, merges into THPS1 | 3 songs only on this release | Optional: the European songs |
 | THPS1 | PlayStation Japan | `.cue`+`.bin`, `.chd` | playable, merges into THPS1 | revised School, retextured Rowley and Warehouse wall, Japanese menu art | Optional: Japan-only look |
 | THPS1 | Dreamcast USA / Europe | `.chd` | playable through the PlayStation career, merges into THPS1 | higher-detail skaters, boards and textures, used where they have more detail | **Yes**, best THPS1 assets |
@@ -97,7 +98,7 @@ textures can be chosen under *Options > Platform Look*.
 | THPS2 | N64 USA | `.z64` | partial, own pack | the N64 versions of 9 levels, N64 models and sounds | Optional: N64 look |
 | THPS2 | March 2000 demo (US / Europe / Australia) | `.cue`+`.bin` | experimental: Free Skate only, own pack | an early Marseille with a different layout, demo physics rules, unique sounds | Optional: prerelease content |
 | THPS2 | E3 demo (May 9, 2000) | `.cue`+`.bin` | experimental: Free Skate only, own pack | 9 early levels with different geometry, 26 early outfits, an earlier song mix | Optional: prerelease content |
-| THPS2X | Xbox | extracted disc folder | playable | 5 levels only in 2X (Club, Construction, Skatepark Florida, Skyline, Subway), THPS1 levels in a THPS2-style career, high-detail models and textures, extra decks | **Yes**, needed for THPS1 |
+| THPS2X | Xbox | extracted disc folder | playable | 5 levels only in 2X (Club, Construction, Skatepark Florida, Skyline, Subway), THPS1 levels in a THPS2-style career, high-detail models and textures, extra decks | **Yes**, needed for the THPS1 prototype and Dreamcast THPS1 |
 | THPS3 | Xbox (Europe) | `.iso` | partial: career with classic goals and competitions; scripted goals and native physics missing | the THPS3 base pack; Skater X, Oil Rig | Yes, if you want THPS3 (the base) |
 | THPS3 | PC | CD or install folder | partial, merges into THPS3 | Doomguy, extra sounds | Optional |
 | THPS3 | PlayStation 2 (Europe) | `.iso` | partial, merges into THPS3 | the Paris level, skater effects | Optional: unique level |
@@ -144,10 +145,12 @@ The formats each version is read from are in the table under
 Some versions build on others. The Games screen orders the imports and
 says when something is missing:
 
-- **THPS2X first.** THPS1 on PlayStation (USA, Europe, Japan, the
-  prototype) and on Dreamcast needs THPS2X (Xbox), imported or in
-  `import/`. The Dreamcast versions also need the PlayStation version of
-  the same game imported first.
+- **THPS1 PlayStation** (USA, Europe, Japan) imports on its own. If
+  THPS2X (Xbox) is imported or in `import/`, import it first: THPS1 then
+  also gets THPS2X's animations (the default) and stats.
+- **THPS2X first** for the THPS1 prototype and Dreamcast THPS1. The
+  Dreamcast versions also need the PlayStation version of the same game
+  imported first.
 - THPS2 PlayStation USA is the base of the THPS2 pack. THPS2 PC, Japan,
   Dreamcast and Spider-Man need it.
 - THPS3 Xbox and THPS4 Xbox are the bases of their packs; the other
@@ -172,6 +175,18 @@ says when something is missing:
 Add more games to `import/` at any time and import them from
 **Main Menu > Games**.
 
+### Updating
+
+When a new test build changes how a game is imported (a fix to levels,
+skaters, textures...), the game notices at start-up and asks: **Import
+now** re-imports what changed (with what depends on it) and shows the
+progress, **Later** asks again next time, **Don't ask again** turns the
+check off. **Options > Imports** sets this: **Ask** (default),
+**Automatic** (re-import without asking) or **Off**. The Games screen
+shows those versions as **UPDATE**; `osgames update` does the same from
+the command line (`osgames update --dry-run` lists what it would do).
+Keep the game discs in `import/` so updates can run.
+
 ### 3. Import from the command line (optional)
 
 `osgames` does exactly what the Games screen does, without a window. Run
@@ -183,6 +198,7 @@ Windows (PowerShell, in the OpenSkater folder):
 .\osgames.exe scan              # what is in import\ and what each version needs
 .\osgames.exe plan all          # the order it would import in, and what is missing
 .\osgames.exe import all        # import everything available
+.\osgames.exe update            # re-import what a new build changed
 .\osgames.exe import thps2-ps1-usa   # or one version, by the id scan shows
 .\oscheck.exe                   # check every imported pack
 ```
@@ -193,6 +209,7 @@ Linux:
 ./osgames scan
 ./osgames plan all
 ./osgames import all
+./osgames update
 ./osgames import thps2-ps1-usa
 ./oscheck
 ```
@@ -215,7 +232,7 @@ shown; on Windows use `.\osimport.exe` and `data\packs`):
 
 ```sh
 ./osimport thps2x "import/THPS2X" pack data/packs
-./osimport "import/Tony Hawk's Pro Skater (USA).cue" pack data/packs --thps2x "import/THPS2X"
+./osimport "import/Tony Hawk's Pro Skater (USA).cue" pack data/packs --thps2x "import/THPS2X"   # --thps2x optional
 ./osimport "import/Tony Hawk's Pro Skater 2 (USA).cue" pack data/packs --thps2x "import/THPS2X"
 ./osimport pc "import/Tony Hawk's Pro Skater 2 (PC).iso" pack data/packs
 ./osimport dc "import/Tony Hawk's Pro Skater 2 (USA).chd" pack data/packs
