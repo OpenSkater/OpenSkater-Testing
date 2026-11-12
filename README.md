@@ -1,7 +1,8 @@
 # OpenSkater test builds
 
 OpenSkater is an engine reimplementation of the classic Tony Hawk's Pro
-Skater games (THPS1 to THPS4 and their many versions), written in C++20 with
+Skater games (THPS1 to THPS4 and their many versions, with THUG, THUG2, THAW
+and later games in progress), written in C++20 with
 SDL3 and OpenGL. It reimplements the original skater physics, tricks,
 careers and goals, and **imports the levels, skaters, music and sounds from
 your own legally owned copies of the games**.
@@ -61,8 +62,9 @@ To check a download: `sha256sum -c SHA256SUMS --ignore-missing` (Linux) or
   desktop libraries (OpenGL/Mesa or your GPU driver; PipeWire, PulseAudio
   or ALSA for sound). These are loaded at run time, as on any desktop.
 - **Disk space:** imported packs need about 0.5 to 1 GB each for THPS1,
-  THPS2 and THPS2X, about 4.5 GB for THPS3 and up to 11 GB for THPS4 with
-  every platform imported, plus your game images.
+  THPS2 and THPS2X, about 4.5 GB for THPS3, up to 11 GB for THPS4 with
+  every platform imported, and several GB each for THUG and the later
+  games, plus your game images.
 - A gamepad is recommended (Xbox, PlayStation, Switch and most others work).
 
 ## Supported games
@@ -99,24 +101,33 @@ textures can be chosen under *Options > Platform Look*.
 | THPS2 | March 2000 demo (US / Europe / Australia) | `.cue`+`.bin` | experimental: Free Skate only, own pack | an early Marseille with a different layout, demo physics rules, unique sounds | Optional: prerelease content |
 | THPS2 | E3 demo (May 9, 2000) | `.cue`+`.bin` | experimental: Free Skate only, own pack | 9 early levels with different geometry, 26 early outfits, an earlier song mix | Optional: prerelease content |
 | THPS2X | Xbox | extracted disc folder | playable | 5 levels only in 2X (Club, Construction, Skatepark Florida, Skyline, Subway), THPS1 levels in a THPS2-style career, high-detail models and textures, extra decks | **Yes**, needed for the THPS1 prototype and Dreamcast THPS1 |
-| THPS3 | Xbox (Europe) | `.iso` | partial: career with classic goals and competitions; scripted goals and native physics missing | the THPS3 base pack; Skater X, Oil Rig | Yes, if you want THPS3 (the base) |
-| THPS3 | PC | CD or install folder | partial, merges into THPS3 | Doomguy, extra sounds | Optional |
-| THPS3 | PlayStation 2 (Europe) | `.iso` | partial, merges into THPS3 | the Paris level, skater effects | Optional: unique level |
-| THPS3 | PlayStation 2 (Japan) | `.iso` | partial, merges into THPS3 | three Japan-only skaters, about 20 decks | Optional: unique skaters |
-| THPS3 | GameCube (Europe) | `.iso`, `.ciso` | partial, merges into THPS3 | an alternative look, extra sounds | No, nothing unique |
+| THPS3 | Xbox (Europe) | `.iso` | playable: the full career (every goal, competitions with THPS3's own judging, stat points), THPS3's own scoring and physics, the Boardshop's decks | the THPS3 base pack; Skater X, Oil Rig | **Yes**, the THPS3 base |
+| THPS3 | PC | CD or install folder | playable, merges into THPS3 | Doomguy, extra sounds | Optional |
+| THPS3 | PlayStation 2 (Europe) | `.iso` | playable, merges into THPS3 | the Paris level, skater effects | Optional: unique level |
+| THPS3 | PlayStation 2 (Japan) | `.iso` | playable, merges into THPS3 | three Japan-only skaters, about 20 decks | Optional: unique skaters |
+| THPS3 | GameCube (Europe) | `.iso`, `.ciso` | playable, merges into THPS3 | an alternative look, extra sounds | No, nothing unique |
 | THPS3 | PlayStation USA | `.cue`+`.bin` | partial: no complete career; own pack | the PlayStation THPS3 (9 levels, Wolverine) | Optional: a different game |
-| THPS4 | Xbox USA | `.iso` | partial: every level is reachable, about half the goals work; no Create Skater | the THPS4 base pack and its skaters | Yes, if you want THPS4 (the base) |
+| THPS4 | Xbox USA | `.iso` | partial: every level and THPS4's own physics; about 80 of the 190 goals are verified, others may work; no Create Skater | the THPS4 base pack and its skaters | Yes, if you want THPS4 (the base) |
 | THPS4 | PlayStation 2 USA (v2.01) | `.iso` | partial, merges into THPS4 | an alternative look | No, nothing unique |
 | THPS4 | GameCube USA | `.iso`, `.ciso` | partial, merges into THPS4 | an alternative look, the GameCube skaters | Optional |
 | THPS4 | PC | install media or folder | partial, merges into THPS4 | an alternative look | No, nothing unique |
 | THPS4 | PlayStation USA | `.cue`+`.bin` | partial: about 30 of 196 challenges; own pack | the PlayStation THPS4 (8 levels) | Optional: a different game |
 | Spider-Man | PlayStation USA | `.iso` | playable as skaters (needs THPS2) | Spider-Man (with his costumes), Venom, Carnage and others as skaters in THPS2 | Optional: fun extra skaters |
-| THUG | PC | install folder | experimental: Free Skate and some challenges; command line only (needs THPS4) | 15 levels, the THUG skaters and 76 songs | Not yet |
-| THUG2 | PC | install CDs (merged) or folder | experimental: Free Skate only, no music yet; command line only | 16 levels, the THUG2 pros and secret skaters | Not yet |
+| THUG | PC | installed folder (with `Game/THUG.exe`) | experimental: Free Skate and some goals | 15 levels, the THUG skaters with their own tricks and on-foot moves, 76 songs | Optional |
+| THUG2 | PC | install CDs' files merged into one folder (with the `.msi` and `.cab` files) | experimental: Free Skate | 16 levels, the THUG2 pros and secret skaters with their own tricks and on-foot moves | Optional |
+| THUG2 Remix | PSP USA | `.cso` | experimental: Free Skate, own pack | 19 levels and the Remix-only skaters on the Remix's own tricks | Optional |
+| THAW | PC | installer DVD's files (with the `.msi` and `.cab` files) | experimental: Free Skate | the zones of Los Angeles, the THAW skaters with their own tricks and on-foot moves, the soundtrack; **its on-foot moves are also used by THPS1-4, Spider-Man and Downhill Jam skaters** | Yes, if you want to get off the board in THPS1-4 |
+| Project 8 | Xbox USA | `.iso` | experimental: Free Skate, no goals | 10 levels, the roster on Project 8's own tricks and on-foot moves, soundtrack, sounds and voices | Optional |
+| Proving Ground | PlayStation 2 USA | `.iso` | experimental: Free Skate, no goals or audio | 9 levels, PG's own skaters, physics and on-foot moves (wall climbing, vaults) | Optional |
+| Downhill Jam | PlayStation 2 USA | `.iso` | experimental: Free Skate, no races or sound effects | 8 downhill courses, the game's 14 riders (5 outfits each), the soundtrack; riders move with THAW's set when THAW is imported | Optional |
+| Disney's Extreme Skate Adventure | PlayStation 2 Europe | `.iso` | experimental: Free Skate | its levels, the 12 Disney characters on their own rigs and clips, soundtrack and sounds | Optional |
+| THPS5 | Xbox 360 USA | extracted disc folder | experimental: Free Skate only, no characters | 7 levels, the soundtrack and sound effects | Optional |
+| skate. maps | ReSkate / Thunderstore map zips | `.zip` | experimental | community skate. maps as levels (base-game props left out) | Optional |
 | Skater XL | board mods (deck, grip, wheels) | mod folders | playable | community deck, grip and wheel graphics | Optional |
 
 Not importable in these builds: Skate 3, THPS2 Game Boy Advance,
-THPS3 N64, THPS HD, LEGO Island and the other games. Some of them are being
+THPS3 N64, THPS HD, Proving Ground on Xbox 360, LEGO Island and the other
+games. Some of them are being
 researched, and none of that work is part of these builds.
 
 ## Getting started
@@ -140,7 +151,8 @@ The formats each version is read from are in the table under
   your Xbox disc to a folder (one that contains `default.xbe` and
   `CDParks.txt`), for example with extract-xiso.
 - PC games: the CD's contents or the installed game's folder.
-- `.zip` files are recognised but not read: unzip them first.
+- `.zip` files are recognised but not read: unzip them first. The
+  exception is skate. map downloads, which are imported as they are.
 
 Some versions build on others. The Games screen orders the imports and
 says when something is missing:
@@ -155,6 +167,11 @@ says when something is missing:
   Dreamcast and Spider-Man need it.
 - THPS3 Xbox and THPS4 Xbox are the bases of their packs; the other
   platforms merge into them as alternative looks.
+- THUG, THUG2, THUG2 Remix, THAW, Project 8, Proving Ground, Downhill Jam,
+  Disney's Extreme Skate Adventure and THPS5 each import on their own.
+- **Getting off the board** in THPS1-4, Spider-Man and Downhill Jam uses
+  THAW's on-foot moves, so import THAW (PC) for it. The other games use
+  their own.
 
 ### 2. Import (the easy way)
 
@@ -245,28 +262,6 @@ THPS3 and THPS4 take several steps each (levels, music, sounds, skaters,
 tricks); the Games screen runs all of them in order, so use it (or
 `osgames`) for those. `osimport --help` lists every command.
 
-THUG (PC) is experimental and not imported by the Games screen or
-`osgames`. To try it, import THPS4 first, then run these with the THUG
-installation folder (the one with `Game/THUG.exe`), in this order:
-
-```sh
-./osimport thug pc "import/Tony Hawk's Underground" music data/packs
-./osimport thug pc "import/Tony Hawk's Underground" sounds data/packs
-./osimport thug pc "import/Tony Hawk's Underground" levels data/packs
-./osimport thug "import/Tony Hawk's Underground" roster data/packs
-```
-
-THUG2 (PC) is experimental in the same way. It needs nothing else
-imported. Point `install` at the folder with your THUG2 CDs' files merged
-(the one with `Tony Hawk's Underground 2.msi` and the `.cab` files); it unpacks the game into
-`data/cache/thug2-pc`, which the next two commands read:
-
-```sh
-./osimport thug2 install "import/Tony Hawk's Underground 2" data/cache/thug2-pc --cab Pre.cab,AllOth~1.cab,Models.cab,levels.cab
-./osimport thug2 pc data/cache/thug2-pc/Game/Data levels data/packs
-./osimport thug2 data/cache/thug2-pc/Game/Data roster data/packs
-```
-
 Imported packs are made from your games: **do not share your `data/`
 folder or the packs in it.**
 
@@ -287,6 +282,7 @@ presets.
 | Flip, grab, grind / lip | J, L, I | Square / X, Circle / B, Triangle / Y |
 | Spin | Q, E | L1, R1 |
 | Next restart point | Backspace | Select / Back |
+| Look around | | right stick |
 | Pause menu | Escape | Start |
 | Menus | arrows, Enter, Escape (back) | d-pad, Cross / A, Circle / B |
 | Toggle UI / stats overlay | F1 / F3 | |
@@ -318,13 +314,16 @@ Never attach game files, imported packs or anything from `data/packs`.
 - **THPS1 and THPS2** (and THPS2X) are the most complete: levels, skaters,
   careers, goals and tricks. Expect visual and gameplay differences from the
   originals in places.
-- **THPS3 and THPS4** import their levels, skaters, music and sounds, but
-  native gameplay (scripts, some tricks and restarts, goals) is partial.
+- **THPS3** plays its whole career with its own scoring, physics and
+  stat points. Only the first secret unlocks have been played through; the
+  rest follow the original's rules but are untested.
+- **THPS4** has its own physics and every level; about 80 of its 190 goals
+  are verified, and there is no Create Skater.
 - The **N64, N-Gage and PlayStation THPS3/THPS4** versions and the demos
   have incomplete careers or none (see the table above).
-- **THUG and THUG2 (PC)** are listed under DEV TOOLS in the Games screen:
-  experimental, not imported by Import All Available. THUG2's skaters use
-  OpenSkater's own trick set for now.
+- **THUG and later games** (THUG2, THUG2 Remix, THAW, Project 8, Proving
+  Ground, Downhill Jam, Disney's Extreme Skate Adventure, THPS5) are
+  experimental: mostly Free Skate, with few or no goals.
 - THPS2 Game Boy Advance, THPS HD and the other games are not importable.
 - No macOS build yet.
 - Settings, careers and created skaters live in `data/` and may be reset by
