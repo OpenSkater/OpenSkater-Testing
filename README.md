@@ -283,6 +283,7 @@ presets.
 | Spin | Q, E | L1, R1 |
 | Next restart point | Backspace | Select / Back |
 | Get off / back on the board | | L1 + R1 together (LB + RB) |
+| Drop or throw the board (THAW moves) | | Square (X); walk over it to get back on |
 | Look around | | right stick |
 | Pause menu | Escape | Start |
 | Menus | arrows, Enter, Escape (back) | d-pad, Cross / A, Circle / B |
