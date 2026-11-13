@@ -282,6 +282,7 @@ presets.
 | Flip, grab, grind / lip | J, L, I | Square / X, Circle / B, Triangle / Y |
 | Spin | Q, E | L1, R1 |
 | Next restart point | Backspace | Select / Back |
+| Get off / back on the board | | L1 + R1 together (LB + RB) |
 | Look around | | right stick |
 | Pause menu | Escape | Start |
 | Menus | arrows, Enter, Escape (back) | d-pad, Cross / A, Circle / B |
